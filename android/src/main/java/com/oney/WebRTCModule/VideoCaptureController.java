@@ -24,9 +24,9 @@ public class VideoCaptureController {
      * Default values for width, height and fps (respectively) which will be
      * used to open the camera at.
      */
-    private static final int DEFAULT_WIDTH  = 1280;
-    private static final int DEFAULT_HEIGHT = 720;
-    private static final int DEFAULT_FPS    = 30;
+    private static final int DEFAULT_WIDTH  = 320;
+    private static final int DEFAULT_HEIGHT = 180;
+    private static final int DEFAULT_FPS    = 5;
 
     /**
      * Values for width, height and fps (respectively) which will be
@@ -66,15 +66,9 @@ public class VideoCaptureController {
             = createVideoCapturer(cameraEnumerator, sourceId, facingMode);
 
         if (videoConstraintsMandatory != null) {
-            width = videoConstraintsMandatory.hasKey("minWidth")
-                ? videoConstraintsMandatory.getInt("minWidth")
-                : DEFAULT_WIDTH;
-            height = videoConstraintsMandatory.hasKey("minHeight")
-                ? videoConstraintsMandatory.getInt("minHeight")
-                : DEFAULT_HEIGHT;
-            fps = videoConstraintsMandatory.hasKey("minFrameRate")
-                ? videoConstraintsMandatory.getInt("minFrameRate")
-                : DEFAULT_FPS;
+            width = DEFAULT_WIDTH;
+            height = DEFAULT_HEIGHT;
+            fps = DEFAULT_FPS;
         }
     }
 
